@@ -72,8 +72,24 @@ namespace GPS_Utils {
     }
 
     void setDateFromData() {
-        if (gps.time.isValid()) setTime(gps.time.hour(), gps.time.minute(), gps.time.second(), gps.date.day(), gps.date.month(), gps.date.year());
-    }
+        static int timezoneOffset = 8;
+        
+    if (gps.time.isValid()) {
+        // 使用 TimeLib 的 tmElements_t 进行时间转换
+        tmElements_t tm;
+        tm.Year   = gps.date.year() - 1970;
+        tm.Month  = gps.date.month();
+        tm.Day    = gps.date.day();
+        tm.Hour   = gps.time.hour();
+        tm.Minute = gps.time.minute();
+        tm.Second = gps.time.second();
+
+        time_t localTime = makeTime(tm) + (timezoneOffset * SECS_PER_HOUR);
+        setTime(localTime);
+            }
+        // if (gps.time.isValid()) setTime(gps.time.hour(), gps.time.minute(), gps.time.second(), gps.date.day(), gps.date.month(), gps.date.year());
+
+}
 
     void calculateDistanceTraveled() {
         currentHeading  = gps.course.deg();
