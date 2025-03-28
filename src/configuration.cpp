@@ -96,7 +96,7 @@ void Configuration::writeFile() {
     data["other"]["disableGPS"]                 = disableGPS;
     data["other"]["acceptOwnFrameFromTNC"]      = acceptOwnFrameFromTNC;
     data["other"]["email"]                      = email;
-    data["other"]["massage"]                    = message;
+    data["other"]["status"]                    = status;
 
 
     serializeJson(data, configFile);
@@ -207,7 +207,7 @@ bool Configuration::readFile() {
         disableGPS                      = data["other"]["disableGPS"] | false;
         acceptOwnFrameFromTNC           = data["other"]["acceptOwnFrameFromTNC"] | false;
         email                           = data["other"]["email"] | "";
-        message                         = data["other"]["massage"] | "";
+        status                         = data["other"]["status"] | "Lora Tracker by BG2FFJ";
 
         configFile.close();
         Serial.println("Config read successfuly");
@@ -340,7 +340,7 @@ void Configuration::init() {
     disableGPS                      = false;
     acceptOwnFrameFromTNC           = false;
     email                           = "";
-    message                         = "";
+    status                         = "";
 
     Serial.println("New Data Created...");
 }

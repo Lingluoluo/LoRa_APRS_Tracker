@@ -56,7 +56,7 @@
 		"disableGPS": false,
 		"acceptOwnFrameFromTNC": false,
 		"email": "",
-		"message": "https://yuluoxk.cn/ LoRa APRS Tracker Testing "
+		"status": "https://yuluoxk.cn/ LoRa APRS Tracker Testing "
 	},
 	"winlink": {
 		"password": "17833"

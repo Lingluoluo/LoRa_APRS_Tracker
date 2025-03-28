@@ -118,7 +118,7 @@ public:
     String  path;
     String  email;
     int     nonSmartBeaconRate;
-    String  message;
+    String  status;
     int     rememberStationTime;
     int     standingUpdateTime;
     bool    sendAltitude;
