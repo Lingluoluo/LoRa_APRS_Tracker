@@ -27,7 +27,6 @@
     #define GPS_RX              20
     #define GPS_TX              21
 
-    //  WX
-    
+    #define BUTTON_PIN          9
 
 #endif
