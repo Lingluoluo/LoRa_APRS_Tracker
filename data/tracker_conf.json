@@ -56,7 +56,10 @@
 		"disableGPS": false,
 		"acceptOwnFrameFromTNC": false,
 		"email": "",
-		"status": "https://yuluoxk.cn/ LoRa APRS Tracker Testing "
+		"status": "https://yuluoxk.cn/ LoRa APRS Tracker Testing ",
+		"displayversion": true,
+		"hwversion": "V1.3",
+		"swversion": "BG2FFJ-2025.03.28"
 	},
 	"winlink": {
 		"password": "17833"

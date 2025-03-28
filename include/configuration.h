@@ -119,6 +119,9 @@ public:
     String  email;
     int     nonSmartBeaconRate;
     String  status;
+    bool    displayversion;
+    String  hwversion;
+    String  swversion;
     int     rememberStationTime;
     int     standingUpdateTime;
     bool    sendAltitude;

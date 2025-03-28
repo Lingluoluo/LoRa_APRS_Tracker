@@ -96,7 +96,10 @@ void Configuration::writeFile() {
     data["other"]["disableGPS"]                 = disableGPS;
     data["other"]["acceptOwnFrameFromTNC"]      = acceptOwnFrameFromTNC;
     data["other"]["email"]                      = email;
-    data["other"]["status"]                    = status;
+    data["other"]["status"]                     = status;
+    data["other"]["displayversion"]             = displayversion;
+    data["other"]["swversion"]                  = swversion;
+    data["other"]["hwversion"]                  = hwversion;
 
 
     serializeJson(data, configFile);
@@ -207,7 +210,10 @@ bool Configuration::readFile() {
         disableGPS                      = data["other"]["disableGPS"] | false;
         acceptOwnFrameFromTNC           = data["other"]["acceptOwnFrameFromTNC"] | false;
         email                           = data["other"]["email"] | "";
-        status                         = data["other"]["status"] | "Lora Tracker by BG2FFJ";
+        status                          = data["other"]["status"] | "Lora Tracker by BG2FFJ";
+        displayversion                  = data["other"]["displayversion"] | true;
+        swversion                       = data["other"]["swversion"] | "V1.2";
+        hwversion                       = data["other"]["hwversion"] | "BG2FFJ-2025.03.28";
 
         configFile.close();
         Serial.println("Config read successfuly");
