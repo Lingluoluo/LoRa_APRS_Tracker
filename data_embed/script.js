@@ -156,6 +156,7 @@ function loadSettings(settings) {
     document.getElementById("sendAltitude").checked                     = settings.other.sendAltitude ;
     document.getElementById("disableGPS").checked                       = settings.other.disableGPS;
     document.getElementById("email").value                              = settings.other.email;
+    document.getElementById("message").value                            = settings.other.message;
 
     // LORA
     const loraContainer = document.getElementById("lora-settings");

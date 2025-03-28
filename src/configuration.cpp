@@ -33,10 +33,7 @@ void Configuration::writeFile() {
     data["display"]["ecoMode"]                  = display.ecoMode;
     data["display"]["timeout"]                  = display.timeout;
     data["display"]["turn180"]                  = display.turn180;
-<<<<<<< HEAD
     data["display"]["timezone"]                  = display.timezone;
-=======
->>>>>>> origin/main
 
     data["battery"]["sendVoltage"]              = battery.sendVoltage;
     data["battery"]["voltageAsTelemetry"]       = battery.voltageAsTelemetry;
@@ -99,6 +96,7 @@ void Configuration::writeFile() {
     data["other"]["disableGPS"]                 = disableGPS;
     data["other"]["acceptOwnFrameFromTNC"]      = acceptOwnFrameFromTNC;
     data["other"]["email"]                      = email;
+    data["other"]["massage"]                    = message;
 
 
     serializeJson(data, configFile);
@@ -209,6 +207,7 @@ bool Configuration::readFile() {
         disableGPS                      = data["other"]["disableGPS"] | false;
         acceptOwnFrameFromTNC           = data["other"]["acceptOwnFrameFromTNC"] | false;
         email                           = data["other"]["email"] | "";
+        message                         = data["other"]["massage"] | "";
 
         configFile.close();
         Serial.println("Config read successfuly");
@@ -341,6 +340,7 @@ void Configuration::init() {
     disableGPS                      = false;
     acceptOwnFrameFromTNC           = false;
     email                           = "";
+    message                         = "";
 
     Serial.println("New Data Created...");
 }
