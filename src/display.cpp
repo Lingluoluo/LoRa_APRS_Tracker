@@ -80,7 +80,11 @@ const uint8_t *symbolsAPRS[]  = {runnerSymbol, carSymbol, jeepSymbol, bikeSymbol
 //#define OLED_DISPLAY_HAS_RST_PIN
 
 int         lastMenuDisplay         = 0;
+<<<<<<< HEAD
 uint8_t     screenBrightness        = 1;    //from 1 to 255 to regulate brightness of oled scren
+=======
+uint8_t     screenBrightness        = 1;    //from 1 to 255 to regulate brightness of screens
+>>>>>>> origin/main
 bool        symbolAvailable         = true;
 
 extern logging::Logger logger;
@@ -155,7 +159,10 @@ extern logging::Logger logger;
         sprite.fillRect(0, 60, 320, 2, greyColorDark);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
     void draw_T_DECK_MenuButtons(int menu) {
         int ladoCuadrado            = 45;
         int curvaCuadrado           = 8;
@@ -215,6 +222,7 @@ extern logging::Logger logger;
 
     void draw_T_DECK_Body(const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, const String& line6) {
         
+<<<<<<< HEAD
         /*if (menuDisplay > 0 && menuDisplay < 6) {
             draw_T_DECK_MenuButtons(menuDisplay);
         } else {*/
@@ -222,6 +230,30 @@ extern logging::Logger logger;
         sprite.setTextColor(TFT_WHITE, TFT_BLACK);
 
         const String* const lines[] = {&line1, &line2, &line3, &line4, &line5, &line6};
+=======
+        sprite.setTextSize(normalSizeFont);
+        sprite.setTextColor(TFT_WHITE, TFT_BLACK);
+
+        int lineLength  = 22;
+        int line3Length = line3.length();
+
+        String line3Temp, line4Temp, line5Temp;
+        if (line3.length() > 0 && line4 == "" && line5 == "") {
+            line3Temp = line3.substring(0, lineLength);
+            if (line3Length > lineLength) {
+                line4Temp = line3.substring(lineLength, min(2 * lineLength, line3Length));
+                if (line3Length > 2 * lineLength) {
+                    line5Temp = line3.substring(2 * lineLength);
+                }
+            }
+        } else {
+            line3Temp = line3;
+            line4Temp = line4;
+            line5Temp = line5;
+        }
+
+        const String* const lines[] = {&line1, &line2, &line3Temp, &line4Temp, &line5Temp, &line6};
+>>>>>>> origin/main
         for (int i = 0; i < 6; i++) {
             sprite.drawString(*lines[i], 35, 70 + (i * 20));
         }
@@ -460,7 +492,10 @@ void displayShow(const String& header, const String& line1, const String& line2,
     delay(wait);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 void drawSymbol(int symbolIndex, bool bluetoothActive) {
     const uint8_t *bitMap = symbolsAPRS[symbolIndex];
     #ifdef HAS_TFT
@@ -476,7 +511,10 @@ void drawSymbol(int symbolIndex, bool bluetoothActive) {
     #endif
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 void displayShow(const String& header, const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, int wait) {
     #ifdef HAS_TFT
         #if defined(TTGO_T_DECK_GPS) || defined(TTGO_T_DECK_PLUS)
@@ -599,9 +637,16 @@ String fillMessageLine(const String& line, const int& length) {
     return completeLine;
 }
 
-void displayMessage(const String& sender, const String& message, const int& lineLength, bool next, int wait) {
+void displayMessage(const String& sender, const String& message, bool next, int wait) {
     String messageLine1, messageLine2, messageLine3;
-    int messageLength = message.length();
+
+    int messageLength   = message.length();
+    int lineLength      = 0;
+    #if defined(TTGO_T_DECK_GPS) || defined(TTGO_T_DECK_PLUS)
+        lineLength = 22;
+    #else   // Heltec Wireless Tracker
+        lineLength = 26;
+    #endif
 
     if (message.length() > 0) {
         messageLine1 = message.substring(0, min(lineLength, messageLength));

@@ -33,7 +33,10 @@ void Configuration::writeFile() {
     data["display"]["ecoMode"]                  = display.ecoMode;
     data["display"]["timeout"]                  = display.timeout;
     data["display"]["turn180"]                  = display.turn180;
+<<<<<<< HEAD
     data["display"]["timezone"]                  = display.timezone;
+=======
+>>>>>>> origin/main
 
     data["battery"]["sendVoltage"]              = battery.sendVoltage;
     data["battery"]["voltageAsTelemetry"]       = battery.voltageAsTelemetry;
