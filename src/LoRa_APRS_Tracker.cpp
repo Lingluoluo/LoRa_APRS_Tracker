@@ -109,11 +109,7 @@ extern bool gpsIsActive;
 
 void setup() {
     Serial.begin(115200);
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/main
     #ifndef DEBUG
         logger.setDebugLevel(logging::LoggerLevel::LOGGER_LEVEL_INFO);
     #endif

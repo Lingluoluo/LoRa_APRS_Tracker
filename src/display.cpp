@@ -80,11 +80,7 @@ const uint8_t *symbolsAPRS[]  = {runnerSymbol, carSymbol, jeepSymbol, bikeSymbol
 //#define OLED_DISPLAY_HAS_RST_PIN
 
 int         lastMenuDisplay         = 0;
-<<<<<<< HEAD
-uint8_t     screenBrightness        = 1;    //from 1 to 255 to regulate brightness of oled scren
-=======
 uint8_t     screenBrightness        = 1;    //from 1 to 255 to regulate brightness of screens
->>>>>>> origin/main
 bool        symbolAvailable         = true;
 
 extern logging::Logger logger;
@@ -159,10 +155,6 @@ extern logging::Logger logger;
         sprite.fillRect(0, 60, 320, 2, greyColorDark);
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
     void draw_T_DECK_MenuButtons(int menu) {
         int ladoCuadrado            = 45;
         int curvaCuadrado           = 8;
@@ -222,15 +214,6 @@ extern logging::Logger logger;
 
     void draw_T_DECK_Body(const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, const String& line6) {
         
-<<<<<<< HEAD
-        /*if (menuDisplay > 0 && menuDisplay < 6) {
-            draw_T_DECK_MenuButtons(menuDisplay);
-        } else {*/
-        sprite.setTextSize(normalSizeFont);
-        sprite.setTextColor(TFT_WHITE, TFT_BLACK);
-
-        const String* const lines[] = {&line1, &line2, &line3, &line4, &line5, &line6};
-=======
         sprite.setTextSize(normalSizeFont);
         sprite.setTextColor(TFT_WHITE, TFT_BLACK);
 
@@ -253,7 +236,6 @@ extern logging::Logger logger;
         }
 
         const String* const lines[] = {&line1, &line2, &line3Temp, &line4Temp, &line5Temp, &line6};
->>>>>>> origin/main
         for (int i = 0; i < 6; i++) {
             sprite.drawString(*lines[i], 35, 70 + (i * 20));
         }
@@ -492,10 +474,6 @@ void displayShow(const String& header, const String& line1, const String& line2,
     delay(wait);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
 void drawSymbol(int symbolIndex, bool bluetoothActive) {
     const uint8_t *bitMap = symbolsAPRS[symbolIndex];
     #ifdef HAS_TFT
@@ -511,10 +489,6 @@ void drawSymbol(int symbolIndex, bool bluetoothActive) {
     #endif
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
 void displayShow(const String& header, const String& line1, const String& line2, const String& line3, const String& line4, const String& line5, int wait) {
     #ifdef HAS_TFT
         #if defined(TTGO_T_DECK_GPS) || defined(TTGO_T_DECK_PLUS)
