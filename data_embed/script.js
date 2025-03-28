@@ -209,6 +209,7 @@ function loadSettings(settings) {
     document.getElementById("display.ecoMode").checked                  = settings.display.ecoMode;
     document.getElementById("display.timeout").value                    = settings.display.timeout;
     document.getElementById("display.turn180").checked                  = settings.display.turn180;
+    document.getElementById("display.timezone").checked                  = settings.display.timezone;
     /*if (settings.display.alwaysOn) {
         timeoutInput.disabled = true;
     }*/

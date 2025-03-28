@@ -33,6 +33,7 @@ void Configuration::writeFile() {
     data["display"]["ecoMode"]                  = display.ecoMode;
     data["display"]["timeout"]                  = display.timeout;
     data["display"]["turn180"]                  = display.turn180;
+    data["display"]["timezone"]                  = display.timezone;
 
     data["battery"]["sendVoltage"]              = battery.sendVoltage;
     data["battery"]["voltageAsTelemetry"]       = battery.voltageAsTelemetry;
@@ -137,6 +138,7 @@ bool Configuration::readFile() {
         display.ecoMode                 = data["display"]["ecoMode"] | false;
         display.timeout                 = data["display"]["timeout"] | 4;
         display.turn180                 = data["display"]["turn180"] | false;
+        display.timezone                = data["display"]["timezone"] | 8;
 
         battery.sendVoltage             = data["battery"]["sendVoltage"] | false;
         battery.voltageAsTelemetry      = data["battery"]["voltageAsTelemetry"] | false;

@@ -29,6 +29,7 @@ public:
     bool    ecoMode;
     int     timeout;
     bool    turn180;
+    int     timezone;
 };
 
 class Battery {
